@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import toppings from '../data/toppings';
 
 export default function Form (props) {
-    const { values, update, submit } = props;
+    const { values, update, submit, errors, disabled } = props;
 
     const onChange = (e) => {
         const { name, value, checked, type } = e.target;
@@ -17,7 +17,7 @@ export default function Form (props) {
 
     return (
         <div id="pizza-form">
-            <form onSubmit={onSubmit}>
+            <form autoComplete="off" onSubmit={onSubmit}>
                 <div id="name-input">
                     <label>
                         <input 
@@ -149,8 +149,12 @@ export default function Form (props) {
                 </div>
 {/* SUBMIT FORM */}
                 <label>
-                    <button id="submitBtn">Submit</button>
+                    <button id="submitBtn" disabled={disabled}>Submit</button>
                 </label>
+                <div>{errors.name}</div>
+                <div>{errors.size}</div>
+                <div>{errors.sauce}</div>
+                <div>{errors.topping}</div>
             </form>
 
         </div>

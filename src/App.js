@@ -30,6 +30,7 @@ const App = () => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
   const [orders, setOrders] = useState(initialOrders);
+  const [disabled, setDisabled] = useState(true);
 
 
   const update = (name, value) => {
@@ -77,6 +78,11 @@ const App = () => {
   //   getOrders()
   // }, [])
 
+  useEffect(() => {
+    schema.isValid(values)
+    .then(valid => setDisabled(!valid))
+  }, [values])
+
   return (
     <>
     <Nav />
@@ -84,7 +90,7 @@ const App = () => {
         <Confirmation component={Confirmation} />
       </Route>
       <Route path='/pizza'>
-        <Form component={Form} values={values} update={update} />
+        <Form component={Form} values={values} update={update} submit={submit} errors={errors} disabled={disabled}/>
       </Route>
       <Route exact path="/">
         <Homepage component={Homepage} />
