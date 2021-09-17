@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { Route } from 'react-router-dom';
+
+import Nav from './components/Nav'
+import Homepage from './components/Homepage';
+import Form from './components/Form';
+import Confirmation from './components/Confirmation';
+
 
 const App = () => {
+  const [values, setValues] = useState();
+
+
   return (
     <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
+    <Nav />
+    <Route path='/confirmation'>
+      <Confirmation component={Confirmation} />
+    </Route>
+    <Route path='/pizza'>
+      <Form component={Form} />
+    </Route>
+    <Route path="/">
+      <Homepage component={Homepage}/>
+    </Route>
     </>
   );
 };
