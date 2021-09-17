@@ -19,7 +19,7 @@ export default function Form (props) {
         <div id="pizza-form">
             <form autoComplete="off" onSubmit={onSubmit}>
                 <div>
-                    <label> 
+                    <label> Name &nbsp;
                         <input 
                             id="name-input"
                             type="text"
@@ -27,14 +27,15 @@ export default function Form (props) {
                             placeholder="name"
                             value={values.name}
                             onChange={onChange}
-                        /> <a>{errors.name}</a>
+                        />
                     </label>
+                    <a>{errors.name}</a>
                 </div>
 {/* SIZE DROPDOWN */}
                 <div id="size-dropdown">
                     <label> Choice of Size &nbsp;
-                        <select id="size" name="size" onChange={onChange}>
-                            <option value="select">Size</option>
+                        <select value={values.size} name="size" onChange={onChange}>
+                            <option value="">Size</option>
                             <option value="sm">Small</option>
                             <option value="md">Medium</option>
                             <option value="lg">Large</option>
@@ -141,7 +142,7 @@ export default function Form (props) {
                 </div>
 {/* SPECIAL TXT INSTRUCTIONS */}
                 <div id="special-text">
-                    <label>
+                    <label> Note &nbsp;
                         <input 
                             type="text"
                             name="note"
@@ -152,9 +153,11 @@ export default function Form (props) {
                     </label>
                 </div>
 {/* SUBMIT FORM */}
-                <label>
-                    <button id="submitBtn" disabled={disabled}>Submit</button>
-                </label>
+                <div id="submit-order">
+                    <label>
+                        <button id="submitBtn" disabled={disabled}>Submit</button>
+                    </label>
+                </div>
             </form>
 
         </div>
