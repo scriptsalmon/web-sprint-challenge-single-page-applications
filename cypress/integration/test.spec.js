@@ -9,7 +9,7 @@ describe('Pizza App', () => {
     const sauceInput = () => cy.get('input[type="radio"]');
     const toppingsInput = () => cy.get('input[name=topping]');
     const noteInput = () => cy.get('textarea[name=note]');
-    const submitBtn = () => cy.get(`button[id='submitBtn']`)
+    const submitBtn = () => cy.get(`button[id='order-button']`)
 
     //elements exist
     it('required elements exist', () => {
@@ -90,7 +90,7 @@ describe('Pizza App', () => {
             submitBtn()
                 .should('be.enabled')
                 .click()
-                
+
         })
 
     })

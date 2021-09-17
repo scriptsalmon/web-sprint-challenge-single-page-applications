@@ -8,6 +8,7 @@ const StyledNav = styled.div`
     display:flex;
     justify-content:space-around;
     align-content:baseline;
+    background: ${props => props.theme.primaryColor};
 
     .Nav-links {
         padding-top:2.5%;

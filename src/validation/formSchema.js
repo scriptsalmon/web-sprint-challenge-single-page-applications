@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-
+import toppings from '../data/toppings';
 
 const formSchema = yup.object().shape({
     name: yup
@@ -16,7 +16,8 @@ const formSchema = yup.object().shape({
     .required('what kind of sauce would you like?'),
     topping: yup
     .string()
-    .oneOf(['Pepperoni', 'Grilled Chicker', 'Diced Tomato', 'Spinach' ], 'pick a topping!'),
+    // .oneOf(['Pepperoni', 'Grilled Chicker', 'Diced Tomato', 'Spinach' ], 'pick a topping!'),
+    .oneOf(toppings, 'pick a topping!'),
     note: yup
     .string()
 })

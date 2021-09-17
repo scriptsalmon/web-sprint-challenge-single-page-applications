@@ -1,5 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import toppings from '../data/toppings';
+import styled from 'styled-components';
+
+const StyledForm = styled.div`
+    width:100%;
+    height:auto;
+    background: ${props => props.theme.secondaryColor};
+
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    flex-direction:column;
+
+    #customer-name, #size-dropdown, 
+    #sauce-selection, #toppings-checklist, 
+    #special-text, #submit-order {
+        background-color:${props => props.theme.tertiaryColor};
+        margin:2% 1%;
+    }
+
+`
 
 export default function Form (props) {
     const { values, update, submit, errors, disabled } = props;
@@ -16,9 +36,10 @@ export default function Form (props) {
     }
 
     return (
+        <StyledForm>
         <div id="pizza-form">
             <form autoComplete="off" onSubmit={onSubmit}>
-                <div>
+                <div id="customer-name">
                     <label> Name &nbsp;
                         <input 
                             id="name-input"
@@ -85,31 +106,31 @@ export default function Form (props) {
                 </div>
 {/* TOPPINGS CHECKBOXES */}
                 <div id="toppings-checklist"> Add Toppings <br/> Choose a few <br/>
-                    {/* {
-                        toppings.map(topping => {
+                    {
+                        toppings.map((topping, idx) => {
                             return(
-                                <label> {topping} &nbsp;
-                                    <input 
+                                <label key={idx} >
+                                    <input
                                         type="checkbox"
                                         name="topping"
                                         checked={values.checked}
-                                        value={values.topping}
+                                        value={topping}
                                         onChange={onChange}
-                                    />
-                                </label>
+                                    /> {topping} &nbsp;
+                                </label> 
                             )
                         })
-                    } */}
+                    }
 
-                    <label>
+                    {/* <label>
                         <input 
                             type="checkbox"
                             name="topping"
                             checked={values.checked}
                             value="Pepperoni"
                             onChange={onChange}
-                        />
-                    </label> Pepperoni &nbsp;
+                        /> Pepperoni &nbsp;
+                    </label> 
                     <label>
                         <input 
                             type="checkbox"
@@ -117,8 +138,8 @@ export default function Form (props) {
                             checked={values.checked}
                             value="Grilled Chicker"
                             onChange={onChange}
-                        />
-                    </label> Grilled Chicker &nbsp;
+                        /> Grilled Chicker &nbsp;
+                    </label> 
                     <label>
                         <input 
                             type="checkbox"
@@ -126,8 +147,8 @@ export default function Form (props) {
                             checked={values.checked}
                             value="Diced Tomato"
                             onChange={onChange}
-                        />
-                    </label> Diced Tomato &nbsp;
+                        /> Diced Tomato &nbsp;
+                    </label> 
                     <label>
                         <input 
                             type="checkbox"
@@ -135,14 +156,15 @@ export default function Form (props) {
                             checked={values.checked}
                             value="Spinach"
                             onChange={onChange}
-                        />
-                    </label> Spinach &nbsp;
+                        /> Spinach &nbsp;
+                    </label>  */}
                     <a>{errors.topping}</a>
                 </div>
 {/* SPECIAL TXT INSTRUCTIONS */}
                 <div id="special-text">
                     <label> Note &nbsp;
                         <textarea 
+                            rows="4"
                             name="note"
                             placeholder="special request?"
                             value={values.note}
@@ -153,11 +175,12 @@ export default function Form (props) {
 {/* SUBMIT FORM */}
                 <div id="submit-order">
                     <label>
-                        <button id="submitBtn" disabled={disabled}>Submit</button>
+                        <button id="order-button" disabled={disabled}>Submit</button>
                     </label>
                 </div>
             </form>
 
         </div>
+        </StyledForm>
     )
 }

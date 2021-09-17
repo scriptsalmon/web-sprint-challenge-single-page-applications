@@ -27,17 +27,23 @@ const initialErrors = {
 
 const initialOrders = [];
 
+
 const App = () => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
   const [orders, setOrders] = useState(initialOrders);
   const [disabled, setDisabled] = useState(true);
 
+  const history = useHistory(); 
+
+  const confirmationRoute = () => {
+    history.push('/confirmation');
+  }
+
 
   const update = (name, value) => {
     validate(name, value);
     setValues({...values, [name]: value});
-    console.log(name, value);
   };
 
   const submit = () => {
@@ -56,7 +62,7 @@ const App = () => {
   //   axios.get('https://reqres.in/api/orders')
   //     .then(res => {
   //       console.log(res.data);
-  //       // setOrders(res.data);
+  //       setOrders(res.data);
   //     })
   // }
 
@@ -65,6 +71,7 @@ const App = () => {
       .then(res => {
         setOrders([ ...orders, res.data ])
         setValues(initialValues);
+        confirmationRoute();
       })
   }
 
@@ -92,8 +99,8 @@ const App = () => {
         <Contact />
       </Route>
 
-      <Route path='/confirmation'>
-        <Confirmation component={Confirmation} />
+      <Route path='/confirmation' >
+        <Confirmation component={Confirmation} orders={orders}/>
       </Route>
 
       <Route path='/pizza'>
