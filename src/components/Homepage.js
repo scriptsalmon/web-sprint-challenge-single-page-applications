@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 export default function Homepage() {
     return (
         <div>
-            <button id="#order-pizza">
-                <Link to="/pizza">Make Your Pie!</Link>
-            </button>
+            <Link to="/pizza">
+                <button id="#order-pizza">Make Your Pie!</button>
+            </Link>
         </div>
     )
 }

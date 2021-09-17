@@ -6,7 +6,10 @@ export default function Nav() {
         <div>
             <header>
                 <h1>Lambda Eats</h1>  
-                <Link to="/">Homepage</Link>
+                <div>
+                    <Link to="/">Homepage</Link>
+                </div>
+                
             </header>
         </div>
 
