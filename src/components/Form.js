@@ -143,8 +143,7 @@ export default function Form (props) {
 {/* SPECIAL TXT INSTRUCTIONS */}
                 <div id="special-text">
                     <label> Note &nbsp;
-                        <input 
-                            type="text"
+                        <textarea 
                             name="note"
                             placeholder="special request?"
                             value={values.note}

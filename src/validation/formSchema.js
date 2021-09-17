@@ -16,7 +16,9 @@ const formSchema = yup.object().shape({
     .required('what kind of sauce would you like?'),
     topping: yup
     .string()
-    .oneOf(['Pepperoni', 'Grilled Chicker', 'Diced Tomato', 'Spinach' ], 'pick a topping!')
+    .oneOf(['Pepperoni', 'Grilled Chicker', 'Diced Tomato', 'Spinach' ], 'pick a topping!'),
+    note: yup
+    .string()
 })
 
 export default formSchema;
