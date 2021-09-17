@@ -85,15 +85,22 @@ const App = () => {
 
   return (
     <>
-    <Nav />
+    {/* <Nav /> */}
       <Route path='/confirmation'>
         <Confirmation component={Confirmation} />
       </Route>
+
       <Route path='/pizza'>
-        <Form component={Form} values={values} update={update} submit={submit} errors={errors} disabled={disabled}/>
+        <Form component={Form} 
+              values={values} 
+              update={update} 
+              submit={submit} 
+              errors={errors} 
+              disabled={disabled}/>
       </Route>
+
       <Route exact path="/">
-        <Homepage component={Homepage} />
+        <Homepage />
       </Route>
     </>
   );
