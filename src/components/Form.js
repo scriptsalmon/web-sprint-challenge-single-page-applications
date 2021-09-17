@@ -12,6 +12,7 @@ export default function Form (props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        submit();
     }
 
     return (
