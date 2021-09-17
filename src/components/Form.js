@@ -105,8 +105,8 @@ export default function Form (props) {
                         <input 
                             type="checkbox"
                             name="topping"
-                            value={values.topping}
                             checked={values.checked}
+                            value="Pepperoni"
                             onChange={onChange}
                         />
                     </label> Pepperoni &nbsp;
@@ -114,9 +114,8 @@ export default function Form (props) {
                         <input 
                             type="checkbox"
                             name="topping"
-                            id="Grilled Chicken"
                             checked={values.checked}
-                            value={values.topping}
+                            value="Grilled Chicker"
                             onChange={onChange}
                         />
                     </label> Grilled Chicker &nbsp;
@@ -125,16 +124,16 @@ export default function Form (props) {
                             type="checkbox"
                             name="topping"
                             checked={values.checked}
-                            value={values.topping}
+                            value="Diced Tomato"
                             onChange={onChange}
                         />
-                    </label> Diced Tomatos &nbsp;
+                    </label> Diced Tomato &nbsp;
                     <label>
                         <input 
                             type="checkbox"
                             name="topping"
                             checked={values.checked}
-                            value={values.topping}
+                            value="Spinach"
                             onChange={onChange}
                         />
                     </label> Spinach &nbsp;
