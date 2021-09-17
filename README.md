@@ -34,10 +34,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
 
-    useRouteMatch hook is a function that gives us the power to construct nested paths. What it does is get match data. 
+    useRouteMatch hook is a function that gives us the power to construct nested paths. What it does is get match data, and with this information we are able to display whichever component we have routed to that path. Instead of sending a server request, we are able to make a client-side request and lighten the load/improve user experience.
 
 1. How would you explain form validation to someone who has never programmed before?
+
+    Form validation is how we force users to give us information we desire, and be picky about it. If you've ever signed up for an account on the internet, you know that the email address required for you to make an account has to contain certain characters and symbols. Unless a user correctly inputs what we describe as valid, they wont be allowed access to the next step. 
+
 1. In 1-2 sentences, define end to end testing.
+
+    End to end testing is simulating user experience on an application or webpage from start to finish. This type of testing asks 'can a user accomplish an action?'. In this form of testing we can parrot the way users interact and weed out any bugs or undesireable UI glitches before production. 
 
 ## Instructions
 
