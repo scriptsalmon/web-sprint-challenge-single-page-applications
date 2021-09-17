@@ -18,15 +18,16 @@ export default function Form (props) {
     return (
         <div id="pizza-form">
             <form autoComplete="off" onSubmit={onSubmit}>
-                <div id="name-input">
-                    <label>
+                <div>
+                    <label> 
                         <input 
+                            id="name-input"
                             type="text"
                             name="name"
                             placeholder="name"
                             value={values.name}
                             onChange={onChange}
-                        />
+                        /> <a>{errors.name}</a>
                     </label>
                 </div>
 {/* SIZE DROPDOWN */}
@@ -39,6 +40,7 @@ export default function Form (props) {
                             <option value="lg">Large</option>
                         </select>
                     </label>
+                    <a>{errors.value}</a>
                 </div>
 {/* SAUCE SELECTION */}
                 <div id="sauce-selection">
@@ -78,6 +80,7 @@ export default function Form (props) {
                             onChange={onChange}
                         /> Spinach &nbsp;
                     </label>
+                    <a>{errors.sauce}</a>
                 </div>
 {/* TOPPINGS CHECKBOXES */}
                 <div id="toppings-checklist"> Add Toppings <br/> Choose a few <br/>
@@ -134,6 +137,7 @@ export default function Form (props) {
                             onChange={onChange}
                         />
                     </label> Spinach &nbsp;
+                    <a>{errors.topping}</a>
                 </div>
 {/* SPECIAL TXT INSTRUCTIONS */}
                 <div id="special-text">
@@ -151,10 +155,6 @@ export default function Form (props) {
                 <label>
                     <button id="submitBtn" disabled={disabled}>Submit</button>
                 </label>
-                <div>{errors.name}</div>
-                <div>{errors.size}</div>
-                <div>{errors.sauce}</div>
-                <div>{errors.topping}</div>
             </form>
 
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
 import schema from './validation/formSchema';
@@ -8,6 +8,7 @@ import Nav from './components/Nav'
 import Homepage from './components/Homepage';
 import Form from './components/Form';
 import Confirmation from './components/Confirmation';
+import Contact from './components/Contact';
 
 const initialValues = {
   name: '',
@@ -85,7 +86,12 @@ const App = () => {
 
   return (
     <>
-    {/* <Nav /> */}
+      <Nav />
+
+      <Route path="/contact">
+        <Contact />
+      </Route>
+
       <Route path='/confirmation'>
         <Confirmation component={Confirmation} />
       </Route>

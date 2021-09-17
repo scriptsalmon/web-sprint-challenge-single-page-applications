@@ -10,6 +10,7 @@ const formSchema = yup.object().shape({
     size: yup
     .string()
     .required('what size do you want your pie to be?'),
+    // .oneOf(['sm', 'md', 'lg'], 'please pick a size'),
     sauce: yup
     .string()
     .required('what kind of sauce would you like?'),
